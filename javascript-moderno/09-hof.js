@@ -16,3 +16,7 @@ const some = array.some((product) => product.price < 1000);
 
 
 const every = array.every((product) => product.price >= 1000);
+
+// .map
+
+const map = array.map((product) => ({...product,subtotal: product.quantity * product.price}));
