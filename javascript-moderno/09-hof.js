@@ -26,3 +26,9 @@ const map = array.map((product) => ({...product,subtotal: product.quantity * pro
 
 
 const filter = array.filter((product) => product.quantity > 1);
+
+// .reduce 
+
+const reduce = array.reduce((accumulator, current) => accumulator += current.price * current.quantity, 0)
+
+console.log({ reduce });
