@@ -4,10 +4,15 @@ const array = [
   { name: 'Magic Mouse', price: 1000, quantity: 5 },
 ];
 
-// .find
+// .find e findIndex
 
 const find = array.find((product) => product.price > 1000);
 
 const findIndex = array.findIndex((product) => product.price > 1000);
 
-console.log(findIndex);
+//.some e .every
+
+const some = array.some((product) => product.price < 1000);
+
+
+const every = array.every((product) => product.price >= 1000);
