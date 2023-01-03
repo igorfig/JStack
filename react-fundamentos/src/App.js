@@ -45,6 +45,10 @@ export function App() {
     ]));
   }
 
+  function handleRemovePost(postId) {
+    setPosts(prevState => prevState.filter(post => post.id !== postId))
+  }
+
   return (
     <>
       <Header>
@@ -56,8 +60,10 @@ export function App() {
       <hr />
       {posts.map((post) => (
         <Post
+          onRemove={handleRemovePost}
           key={post.id}
           post={{
+            id: post.id,
             title: post.title,
             subtitle: post.subtitle,
           }}

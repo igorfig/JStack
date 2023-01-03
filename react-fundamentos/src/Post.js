@@ -6,6 +6,7 @@ export default function Post(props) {
   return (
     <article>
       <strong>{props.post.title}</strong>
+      <button type="reset" onClick={() => props.onRemove(props.post.id)}>Remover</button>
       <br />
       <small>{props.post.subtitle}</small>
       <br />
@@ -16,7 +17,9 @@ export default function Post(props) {
 
 Post.propTypes = {
   likes: PropTypes.number.isRequired,
+  onRemove: PropTypes.func.isRequired,
   post: PropTypes.shape({
+    id: PropTypes.number.isRequired,
     title: PropTypes.string.isRequired,
     subtitle: PropTypes.string.isRequired
   }).isRequired
