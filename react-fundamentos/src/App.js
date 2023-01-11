@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Header from "./Header";
-
 import Post from "./Post";
+import { ThemeProvider } from './hooks/useTheme'
 
 export function App() {
   const [posts, setPosts] = useState([
@@ -54,7 +54,7 @@ export function App() {
   }
 
   return (
-    <>
+    <ThemeProvider>
       <Header>
         <h2>
           Posts da semana
@@ -70,27 +70,6 @@ export function App() {
           likes={post.likes}
         />
       ))}
-      {/*  <Post
-        likes={20}
-        post={{
-          title: "Título da notícia 01",
-          subtitle: "Subtítulo da notícia 01",
-        }}
-      />
-      <Post
-        likes={50}
-        post={{
-          title: "Título da notícia 02",
-          subtitle: "Subtítulo da notícia 02",
-        }}
-      />
-      <Post
-        likes={10}
-        post={{
-          title: "Título da notícia 03",
-          subtitle: "Subtítulo da notícia 03",
-        }}
-      /> */}
-    </>
+    </ThemeProvider>
   );
 }
