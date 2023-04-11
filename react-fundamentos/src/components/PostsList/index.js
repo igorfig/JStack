@@ -5,11 +5,7 @@ import Post from './Post';
 
 import posts from './posts';
 
-<<<<<<< HEAD
 export default class PostsList extends React.Component {
-=======
-export default class PostList extends React.Component {
->>>>>>> 1ea681baec21a43aa69f8ecb3f33d19211bfc799
   render() {
     return (
       <Container>

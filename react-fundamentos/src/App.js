@@ -29,24 +29,4 @@ class App extends React.Component {
     );
   }
 }
-
-/*
-function App() {
-  const [currentTheme, setCurrentTheme] = useState(themes.dark);
-
-  function handleSetCurrentTheme(theme) {
-    setCurrentTheme(theme);
-  }
-
-  useEffect(() => console.log(currentTheme), [currentTheme]);
-  return (
-    <ThemeProvider theme={currentTheme}>
-      <GlobalStyle />
-      <ThemeContextProvider>
-        <Layout  setCurrentTheme={handleSetCurrentTheme}/>
-      </ThemeContextProvider> 
-    </ThemeProvider>
-  );
-};
-*/
 export default App;
