@@ -13,7 +13,6 @@ export function ThemeContextProvider({ children }) {
 		setTheme(prevState => prevState === 'dark' ? 'light' : 'dark');
 	}
 
-
 	useEffect(() => localStorage.setItem('@theme', JSON.stringify(theme), [theme]))
 
 	return (
