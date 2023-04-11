@@ -1,9 +1,9 @@
-import React, { useState, useMemo } from 'react';
+import React, { useState, useEffect } from 'react';
 import { ThemeProvider } from 'styled-components';
+import { ThemeContextProvider } from './hooks/useTheme';
 
 import GlobalStyle from './styles/global';
 import Layout from './components/Layout';
-
 import themes from './styles/themes/'
 
 class App extends React.Component {
@@ -32,20 +32,19 @@ class App extends React.Component {
 
 /*
 function App() {
-  const [theme, setTheme] = useState('dark');
+  const [currentTheme, setCurrentTheme] = useState(themes.dark);
 
-  const currentTheme = useMemo(() => {
-    return themes[theme] || themes.dark; 
-  }, [theme]);
-
-  function handleToggleTheme() {
-    setTheme(prevState => prevState === 'dark' ? 'light' : 'dark');
+  function handleSetCurrentTheme(theme) {
+    setCurrentTheme(theme);
   }
 
+  useEffect(() => console.log(currentTheme), [currentTheme]);
   return (
     <ThemeProvider theme={currentTheme}>
       <GlobalStyle />
-      <Layout selectedTheme={theme}  onToggleTheme={handleToggleTheme} />
+      <ThemeContextProvider>
+        <Layout  setCurrentTheme={handleSetCurrentTheme}/>
+      </ThemeContextProvider> 
     </ThemeProvider>
   );
 };
