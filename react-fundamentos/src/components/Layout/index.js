@@ -1,5 +1,4 @@
 import React, { useEffect,useMemo } from 'react';
-import { useTheme } from '../../hooks/useTheme';
 import themes from '../../styles/themes';
 import Header from '../Header';
 import PostsList from '../PostsList';
@@ -11,9 +10,9 @@ export default class Layout extends React.Component {
 
     return (
       <>
-        <Header selectedTheme={selectedTheme} onToggleTheme={onToggleTheme}/>
+        <Header />
         <PostsList />
-        <Footer selectedTheme={selectedTheme} onToggleTheme={onToggleTheme}/>
+        <Footer />
       </>
     );
   }
