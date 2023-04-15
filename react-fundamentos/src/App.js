@@ -27,7 +27,14 @@ class App extends React.Component {
   componentDidCatch(error, info) {
     console.log('componentDidCatch', { error, info })
   }
-
+  
+  shouldComponentUpdate(nextProps, nextState) {
+    console.log('shouldComponentUpdate', {
+    currentState: this.state,
+    nextProps,
+    nextState
+    })
+  }
  
   render() {
     return (
