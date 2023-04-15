@@ -16,6 +16,13 @@ class App extends React.Component {
     console.log('componentDidMount executed');
   }
 
+  componentDidUpdate(prevProps, prevState) {
+    console.log('componentDidUpdate', {
+      currentState: this.state,
+      prevProps,
+      prevState
+    })
+  }
   render() {
     return (
       <ThemeProvider>
