@@ -27,7 +27,7 @@ class App extends React.Component {
   componentDidCatch(error, info) {
     console.log('componentDidCatch', { error, info })
   }
-  
+
   shouldComponentUpdate(nextProps, nextState) {
     console.log('shouldComponentUpdate', {
     currentState: this.state,
@@ -44,7 +44,9 @@ class App extends React.Component {
             <StyledThemeProvider 
               theme={themes[theme] || themes.dark}>
               <GlobalStyle />
-              <Layout />
+              {theme === 'dark' && <Layout />}
+              <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+              <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
             </StyledThemeProvider>
           )}
         </ThemeContext.Consumer>
