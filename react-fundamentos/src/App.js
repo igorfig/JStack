@@ -23,6 +23,12 @@ class App extends React.Component {
       prevState
     })
   }
+
+  componentDidCatch(error, info) {
+    console.log('componentDidCatch', { error, info })
+  }
+
+ 
   render() {
     return (
       <ThemeProvider>
