@@ -10,6 +10,7 @@ export default class Layout extends React.Component {
 
     return (
       <>
+        {undefined.map(item => item)}
         <Header />
         <PostsList />
         <Footer />
