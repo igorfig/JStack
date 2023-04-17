@@ -8,34 +8,6 @@ import { ThemeProvider, ThemeContext } from './contexts/ThemeContext';
 import themes from './styles/themes/'
 
 class App extends React.Component {
-  state = { 
-    changed: false,
-  }
-
-  componentDidMount() {
-    console.log('componentDidMount executed');
-  }
-
-  componentDidUpdate(prevProps, prevState) {
-    console.log('componentDidUpdate', {
-      currentState: this.state,
-      prevProps,
-      prevState
-    })
-  }
-
-  componentDidCatch(error, info) {
-    console.log('componentDidCatch', { error, info })
-  }
-
-  shouldComponentUpdate(nextProps, nextState) {
-    console.log('shouldComponentUpdate', {
-    currentState: this.state,
-    nextProps,
-    nextState
-    })
-  }
- 
   render() {
     return (
       <ThemeProvider>
@@ -44,9 +16,7 @@ class App extends React.Component {
             <StyledThemeProvider 
               theme={themes[theme] || themes.dark}>
               <GlobalStyle />
-              {theme === 'dark' && <Layout />}
-              <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
-              <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+              <Layout />
             </StyledThemeProvider>
           )}
         </ThemeContext.Consumer>
