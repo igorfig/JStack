@@ -18,12 +18,16 @@ export class ThemeProvider extends React.Component {
 		}
 	}
 
+	componentDidUpdate(prevProps, prevState) {
+		if(prevState.theme !== this.state.theme) {
+			localStorage.setItem('theme', JSON.stringify(this.state.theme));
+		}
+	}
+
 	handleToggleTheme = () => {
 		this.setState((prevState) => ({
 			theme: prevState.theme === 'dark' ? 'light' : 'dark'
-		}), () => {
-			localStorage.setItem('theme', JSON.stringify(this.state.theme));
-		})
+		}))
 	}
 
 	render() {
