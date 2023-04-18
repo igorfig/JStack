@@ -15,6 +15,7 @@ export default class Layout extends React.Component {
         <Nav>
           <Link to="/">Home</Link>
           <Link to="/posts">Posts</Link>
+          <Link to="/posts/id">Post</Link>
         </Nav>  
         <Routes />
         <Footer />
