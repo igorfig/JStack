@@ -18,7 +18,7 @@ export default class Layout extends React.Component {
           <Link to="/posts/id">Post</Link>
         </Nav>  
         <Routes />
-        <Footer />
+        {/*<Footer />*/}
       </BrowserRouter>
     );
   }
