@@ -12,7 +12,7 @@ export default createGlobalStyle`
 	}
 
 	body {
-		background: ${(props) => props.theme.backgroundColor};
+		background: ${({ theme }) => theme.colors.background};
 		font-size: 16px;
 	}
 
