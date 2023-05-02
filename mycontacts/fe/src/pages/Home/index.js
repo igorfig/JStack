@@ -12,7 +12,7 @@ export default function Home() {
 
 			<Header>
 				<strong>3 contatos</strong>
-				<a href="/">Novo contato</a>
+				<a href="/new">Novo contato</a>
 			</Header>
 
 			<ListContainer>
@@ -35,7 +35,7 @@ export default function Home() {
 					</div>
 
 					<div className="actions">
-						<a href="/">
+						<a href="/edit/4546454">
 							<img src={edit} alt="Edit" />
 						</a>
 
