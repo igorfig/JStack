@@ -1,6 +1,10 @@
 import { useState } from 'react';
 import PropTypes from 'prop-types';
+
+import isEmailValid from '../../utils/isEmailValid';
+
 import { Form, ButtonContainer } from './styles';
+
 import FormGroup from '../FormGroup';
 import Input from '../Input';
 import Select from '../Select';
@@ -12,7 +16,7 @@ export default function ContactForm({ buttonLabel }) {
 	const [phone, setPhone] = useState('');
 	const [category, setCategory] = useState('');
 	const [errors, setErrors] = useState([]);
-
+	console.log(errors);
 	const handleNameChange = (event) => { 
 		setName(event.target.value); 
 
@@ -30,7 +34,30 @@ export default function ContactForm({ buttonLabel }) {
 		}
 	}
 
-	console.log(errors);
+	const handleEmailChange = (event) => {
+		setEmail(event.target.value);
+
+		if(event.target.value && !isEmailValid(event.target.value)) {
+			const errorAlreadyExists = errors.find(error => error.field === 'email');
+
+			if(errorAlreadyExists) {
+				return;
+			}
+
+			setErrors(prevState => [
+				...prevState,
+				{ 
+					field: 'email', message: 'O e-mail inválido.',
+				}
+			]);
+		} else {
+			setErrors(prevState => prevState.filter(
+				error => error.field !== 'email'
+			));
+		}
+	}
+
+	// console.log(errors);
 
 	const handleSubmit = (event) => {
 		event.preventDefault()
@@ -55,7 +82,7 @@ export default function ContactForm({ buttonLabel }) {
 				<Input
 					placeholder="E-mail"
 					value={email}
-					onChange={(event) => setEmail(event.target.value)}
+					onChange={handleEmailChange}
 				/>
 			</FormGroup>
 
