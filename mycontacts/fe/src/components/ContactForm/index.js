@@ -15,7 +15,6 @@ export default function ContactForm({ buttonLabel }) {
 	const [email, setEmail] = useState('');
 	const [phone, setPhone] = useState('');
 	const [category, setCategory] = useState('');
-	const [errors, setErrors] = useState([]);
 	const { setError, removeError, getErrorMessageByFieldName} = useErrors();
 
 	const handleNameChange = (event) => { 
@@ -44,9 +43,9 @@ export default function ContactForm({ buttonLabel }) {
 
 	const handleSubmit = (event) => {
 		event.preventDefault()
-		console.log({
-			name, email, phone, category
-		})
+		// console.log({
+		// 	name, email, phone, category
+		// })
 	}
 
 	return (
