@@ -2,6 +2,7 @@ import { useState } from 'react';
 import PropTypes from 'prop-types';
 
 import isEmailValid from '../../utils/isEmailValid';
+import formatPhone from '../../utils/formatPhone';
 import useErrors from '../../hooks/useErrors';
 import { Form, ButtonContainer } from './styles';
 
@@ -23,10 +24,6 @@ export default function ContactForm({ buttonLabel }) {
 		if(!event.target.value) {
 			setError({ field: 'name', message: 'Nome é obrigatório.' });
 		} else {
-			setErrors(prevState => prevState.filter(
-				(error) => error.field !== 'name'
-			));
-
 			removeError('name');
 		}
 	}
@@ -39,6 +36,10 @@ export default function ContactForm({ buttonLabel }) {
 		} else {
 			removeError('email');
 		}
+	}
+
+	const handlePhoneChange = (event) => {
+		setPhone(formatPhone(event.target.value));
 	}
 
 	const handleSubmit = (event) => {
@@ -77,7 +78,7 @@ export default function ContactForm({ buttonLabel }) {
 				<Input 
 					placeholder="Telefone"
 					value={phone}
-					onChange={(event) => setPhone(event.target.value)}
+					onChange={handlePhoneChange}
 				/>
 			</FormGroup>
 
